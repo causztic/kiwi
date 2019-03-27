@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 19386,
-  "expoServerNgrokUrl": "https://qw-trf.graf.kiwi.exp.direct",
-  "packagerNgrokUrl": "https://packager.qw-trf.graf.kiwi.exp.direct",
-  "ngrokPid": 19406
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "webpackServerPort": null
 }
