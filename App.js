@@ -1,32 +1,37 @@
 import React from 'react';
-import { StyleSheet, Button, View } from 'react-native';
-import { Header } from 'react-native-elements';
+import { StyleSheet, View, Text } from 'react-native';
+import { Header, Button } from 'react-native-elements';
 import { HeaderText } from './HeaderText';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{styles}}>
-        <View style={{alignItems: 'center', paddingTop: 30}}>
-          <HeaderText>MAKE AN APPOINTMENT</HeaderText>
+      <View style={styles.container}>
+        <View style={{marginBottom: 'auto', paddingTop: 60}}>
+          <Text>Healthcare Appointment</Text>
+          <Text>健康预约</Text>
         </View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <View style={{width: '50%', height: 50, backgroundColor: 'powderblue'}}>
-            <Button
-              onPress={changeLocale}
-              title="English"
-              color="black"
-              accessibilityLabel="Change to English"
-            />
+        <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
+          <HeaderText>Choose Language</HeaderText>
+          <HeaderText>语言选择</HeaderText>
+            <View style={{width: '50%', paddingBottom: 15, paddingTop: 15}}>
+              <Button
+                onPress={changeLocale}
+                title="English"
+                color="black"
+                titleStyle={{fontSize: 32}}
+                accessibilityLabel="Change to English"
+              />
+            </View>
+            <View style={{width: '50%'}}>
+              <Button
+                onPress={changeLocale}
+                title="中文"
+                titleStyle={{fontSize: 32}}
+                accessibilityLabel="换去中文"
+              />
+            </View>
           </View>
-          <View style={{width: '50%', height: 50, backgroundColor: 'powderblue'}}>
-            <Button
-              onPress={changeLocale}
-              title="中文"
-              accessibilityLabel="换去中文"
-            />
-          </View>
-        </View>
       </View>
     );
   }
