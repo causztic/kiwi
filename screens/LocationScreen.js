@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
-export default class ProblemScreen extends React.Component {
+export default class LocationScreen extends React.Component {
   constructor(props) {
     super(props);
     this.nextPage = this.nextPage.bind(this);
@@ -15,24 +15,18 @@ export default class ProblemScreen extends React.Component {
           <Text>{this.props.screenProps.localeStore.title}</Text>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
-          <HeaderText>{this.props.screenProps.localeStore.problem }</HeaderText>
-          {
-            ["eye", "throat", "chest", "stomach", "others"].map(part =>
-              <View key={part} style={{width: '50%', paddingBottom: 15, paddingTop: 15}}>
-                <Button
-                  title={this.props.screenProps.localeStore[part]}
-                  color="black"
-                  onPress={this.nextPage}
-                  titleStyle={{fontSize: 32}}
-                />
-              </View>
-            )
-          }
+          <HeaderText>{this.props.screenProps.localeStore.selectLocation }</HeaderText>
+          <Button
+            title={this.props.screenProps.localeStore.next}
+            color="black"
+            onPress={this.nextPage}
+            titleStyle={{fontSize: 32}}
+          />
         </View>
       </View>
     );
   }
   nextPage() {
-    this.props.navigation.navigate('Location');
+    this.props.navigation.navigate('Time');
   }
 }
