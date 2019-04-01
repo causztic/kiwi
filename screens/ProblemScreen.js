@@ -6,6 +6,7 @@ import { HeaderText } from '../HeaderText';
 export default class ProblemScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.nextPage = this.nextPage.bind(this);
   }
   render() {
     return (
@@ -21,6 +22,7 @@ export default class ProblemScreen extends React.Component {
                 <Button
                   title={this.props.screenProps.localeStore[part]}
                   color="black"
+                  onPress={this.nextPage}
                   titleStyle={{fontSize: 32}}
                 />
               </View>
@@ -29,5 +31,8 @@ export default class ProblemScreen extends React.Component {
         </View>
       </View>
     );
+  }
+  nextPage() {
+    this.props.navigation.navigate('Location');
   }
 }
