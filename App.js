@@ -1,51 +1,85 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Header, Button } from 'react-native-elements';
-import { HeaderText } from './HeaderText';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { HomeScreen, ProblemScreen, LocationScreen, TimeScreen, DateScreen, ResultsScreen } from './screens';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={{marginBottom: 'auto', paddingTop: 60}}>
-          <Text>Healthcare Appointment</Text>
-          <Text>健康预约</Text>
-        </View>
-        <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
-          <HeaderText>Choose Language</HeaderText>
-          <HeaderText>语言选择</HeaderText>
-            <View style={{width: '50%', paddingBottom: 15, paddingTop: 15}}>
-              <Button
-                onPress={changeLocale}
-                title="English"
-                color="black"
-                titleStyle={{fontSize: 32}}
-                accessibilityLabel="Change to English"
-              />
-            </View>
-            <View style={{width: '50%'}}>
-              <Button
-                onPress={changeLocale}
-                title="中文"
-                titleStyle={{fontSize: 32}}
-                accessibilityLabel="换去中文"
-              />
-            </View>
-          </View>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const AppNavigator = createStackNavigator({
+  Home: HomeScreen,
+  Problem: ProblemScreen,
+  Time: TimeScreen,
+  Date: DateScreen,
+  Location: LocationScreen,
+  Results: ResultsScreen,
+  Map: MapScreen,
+}, {
+  initialRouteName: "Home",
+  defaultNavigationOptions: {
+    header: null
   },
 });
 
-const changeLocale = () => {
+const AppContainer = createAppContainer(AppNavigator);
 
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    const localizedStrings = {
+      cn: {
+        title: "健康预约",
+        problem: "哪里痛?",
+        eye: "眼睛",
+        throat: "喉咙",
+        chest: "胸口",
+        stomach: "肚子",
+        others: "其他",
+        selectLocation: "去哪个诊所？",
+        selectTime: "几点去？",
+        selectDate: "几时去？",
+        next: "下一页",
+        howToGetThere: "怎样去？"
+      },
+      en: {
+        title: "Healthcare Appointment",
+        problem: "Where Pain?",
+        eye: "Eye",
+        throat: "Throat",
+        chest: "Chest",
+        stomach: "Stomach",
+        others: "Others",
+        selectLocation: "Which Clinic?",
+        selectTime: "What Time Go?",
+        selectDate: "Which Date Go?",
+        next: "next",
+        howToGetThere: "How To Get There?"
+      },
+    }
+    this.localeStore = new Proxy({
+      locale: 'en',
+    }, {
+      get(target, property) {
+        if (localizedStrings[target.locale][property]) {
+          return localizedStrings[target.locale][property]
+        } else {
+            if (target.locale !== 'en' && localizedStrings['en'][property]) {
+              return localizedStrings['en'][property]
+            } else {
+              return property
+            }
+          }
+        }
+      }
+    )
+  }
+  changeLocale(key) {
+    this.localeStore.locale = key;
+  }
+  render() {
+    return (
+      <AppContainer
+        screenProps={{
+          localeStore: this.localeStore,
+          changeLocale: this.changeLocale
+        }}
+      />
+    );
+  }
 }
