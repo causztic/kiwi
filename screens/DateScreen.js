@@ -2,14 +2,27 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
+import CalendarPicker from 'react-native-calendar-picker';
 
 export default class DateScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      date:"2019-04-10",
+      selectedStartDate: null,
+    }
     this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.onDateChange = this.onDateChange.bind(this);
+  }
+  onDateChange(date) {
+    this.setState({
+      selectedStartDate: date,
+    });
   }
   render() {
+    const { selectedStartDate } = this.state;
+    const startDate = selectedStartDate ? new Date(selectedStartDate).toDateString() : '';
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
@@ -20,12 +33,19 @@ export default class DateScreen extends React.Component {
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <HeaderText>{this.props.screenProps.localeStore.selectDate }</HeaderText>
-          <Button
-            title={this.props.screenProps.localeStore.next}
-            color="black"
-            onPress={this.nextPage}
-            titleStyle={{fontSize: 32}}
+          <CalendarPicker
+            onDateChange={this.onDateChange}
+            selectedDayColor='#298bd9'
+            selectedDayTextColor='white'
+            minDate={Date.now()}
           />
+          <HeaderText>{ startDate }</HeaderText>
+          { selectedStartDate ? (<Button
+              title={this.props.screenProps.localeStore.confirm}
+              onPress={this.nextPage}
+              buttonStyle={{padding: 30}}
+              titleStyle={{fontSize: 32}}
+          />) : null }
         </View>
         <View style={{paddingBottom: 30, width: '100%' }}>
           <Button

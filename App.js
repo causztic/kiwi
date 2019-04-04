@@ -31,6 +31,7 @@ export default class App extends React.Component {
         next: "下一页",
         previous: "前一页",
         howToGetThere: "怎样去？",
+        confirm: "确定时间",
 
         head: "头",
         eyes: "眼睛",
@@ -59,6 +60,7 @@ export default class App extends React.Component {
         next: "Next",
         previous: "Back",
         howToGetThere: "How To Get There?",
+        confirm: "Confirm Date",
 
         head: "Head",
         eyes: "Eye",
