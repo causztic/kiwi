@@ -23,10 +23,21 @@ export default class LocationScreen extends React.Component {
             titleStyle={{fontSize: 32}}
           />
         </View>
+        <View style={{paddingBottom: 30 }}>
+          <Button
+            title={this.props.screenProps.localeStore.previous}
+            type="clear"
+            onPress={this.previousPage}
+          />
+        </View>
       </View>
     );
   }
   nextPage() {
-    this.props.navigation.navigate('Time');
+    this.props.navigation.navigate('Date');
+  }
+
+  previousPage() {
+    this.props.navigation.navigate('Problem');
   }
 }

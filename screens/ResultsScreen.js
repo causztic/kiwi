@@ -7,7 +7,7 @@ export default class ResultsScreen extends React.Component {
   date = new Date();
   state = {
     date: "April 01 2019",
-    time: `${this.date.getHours() % 12}:${this.date.getMinutes()} ${this.date.getHours() >= 12 ? 'PM' : 'AM'}`
+    time: `${this.date.getHours() > 12 ? this.date.getHours() - 12 : this.date.getHours()}:${this.date.getMinutes() >= 10 ? this.date.getMinutes() : `0${this.date.getMinutes()}`}${this.date.getHours() >= 12 ? 'PM' : 'AM'}`
   };
   constructor(props) {
     super(props);

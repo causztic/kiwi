@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, ScrollView, Text } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
 export default class ProblemScreen extends React.Component {
@@ -17,8 +17,8 @@ export default class ProblemScreen extends React.Component {
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <HeaderText>{this.props.screenProps.localeStore.problem }</HeaderText>
           {
-            ["eye", "throat", "chest", "stomach", "others"].map(part =>
-              <View key={part} style={{width: '50%', paddingBottom: 15, paddingTop: 15}}>
+            ["head", "throat", "stomach", "muscle", "others"].map(part =>
+              <View style={{ paddingBottom: 15, width: '50%' }} key={part}>
                 <Button
                   title={this.props.screenProps.localeStore[part]}
                   color="black"
@@ -29,8 +29,18 @@ export default class ProblemScreen extends React.Component {
             )
           }
         </View>
+        <View style={{paddingBottom: 30 }}>
+          <Button
+            title={this.props.screenProps.localeStore.previous}
+            type="clear"
+            onPress={this.previousPage}
+          />
+        </View>
       </View>
     );
+  }
+  previousPage() {
+    this.props.navigation.navigate('Home');
   }
   nextPage() {
     this.props.navigation.navigate('Location');
