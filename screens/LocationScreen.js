@@ -6,6 +6,7 @@ import { HeaderText } from '../HeaderText';
 export default class LocationScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
   }
   render() {
@@ -23,7 +24,7 @@ export default class LocationScreen extends React.Component {
             titleStyle={{fontSize: 32}}
           />
         </View>
-        <View style={{paddingBottom: 30 }}>
+        <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
             title={this.props.screenProps.localeStore.previous}
             type="clear"

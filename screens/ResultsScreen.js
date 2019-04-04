@@ -11,6 +11,7 @@ export default class ResultsScreen extends React.Component {
   };
   constructor(props) {
     super(props);
+    this.previousPage = this.previousPage.bind(this);
   }
   getDay() {
     return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][this.date.getDay() - 1];
@@ -28,14 +29,25 @@ export default class ResultsScreen extends React.Component {
           <HeaderText>{this.state.time}</HeaderText>
           <HeaderText>{this.state.date}</HeaderText>
           <HeaderText>{this.getDay()}</HeaderText>
-          <View style={{ paddingTop: 30 }}>
+          <View style={{ paddingTop: 30, width: '100%' }}>
             <Button
               title={this.props.screenProps.localeStore.howToGetThere}
+              buttonStyle={{padding: 30}}
               titleStyle={{fontSize: 32}}
             />
           </View>
         </View>
+        <View style={{paddingBottom: 30, width: '100%' }}>
+          <Button
+            title={this.props.screenProps.localeStore.previous}
+            type="clear"
+            onPress={this.previousPage}
+          />
+        </View>
       </View>
     );
+  }
+  previousPage() {
+    this.props.navigation.navigate('Time');
   }
 }

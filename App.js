@@ -56,8 +56,8 @@ export default class App extends React.Component {
         selectLocation: "Which Clinic?",
         selectTime: "What Time Go?",
         selectDate: "Which Date Go?",
-        next: "Next Page",
-        previous: "Previous Page",
+        next: "Next",
+        previous: "Back",
         howToGetThere: "How To Get There?",
 
         head: "Head",

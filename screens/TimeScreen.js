@@ -28,7 +28,7 @@ export default class TimeScreen extends React.Component {
             titleStyle={{fontSize: 32}}
           />
         </View>
-        <View style={{paddingBottom: 30 }}>
+        <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
             title={this.props.screenProps.localeStore.previous}
             type="clear"

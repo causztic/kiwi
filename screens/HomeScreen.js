@@ -18,19 +18,20 @@ export default class HomeScreen extends React.Component {
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <HeaderText>Choose Language</HeaderText>
           <HeaderText>语言选择</HeaderText>
-            <View style={{width: '50%', paddingBottom: 15, paddingTop: 15}}>
+            <View style={{width: '100%', paddingBottom: 15, paddingTop: 15}}>
               <Button
                 onPress={() => this.changeLocale('en')}
                 title="English"
-                color="black"
+                buttonStyle={{padding: 30}}
                 titleStyle={{fontSize: 32}}
                 accessibilityLabel="Change to English"
               />
             </View>
-            <View style={{width: '50%'}}>
+            <View style={{width: '100%'}}>
               <Button
                 onPress={() => this.changeLocale('cn')}
                 title="中文"
+                buttonStyle={{padding: 30}}
                 titleStyle={{fontSize: 32}}
                 accessibilityLabel="换去中文"
               />

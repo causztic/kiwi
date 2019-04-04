@@ -6,6 +6,7 @@ import { HeaderText } from '../HeaderText';
 export default class ProblemScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
   }
   render() {
@@ -18,10 +19,10 @@ export default class ProblemScreen extends React.Component {
           <HeaderText>{this.props.screenProps.localeStore.problem }</HeaderText>
           {
             ["head", "throat", "stomach", "muscle", "others"].map(part =>
-              <View style={{ paddingBottom: 15, width: '50%' }} key={part}>
+              <View style={{ paddingBottom: 15, width: '100%' }} key={part}>
                 <Button
+                  buttonStyle={{padding: 30}}
                   title={this.props.screenProps.localeStore[part]}
-                  color="black"
                   onPress={this.nextPage}
                   titleStyle={{fontSize: 32}}
                 />
@@ -29,7 +30,7 @@ export default class ProblemScreen extends React.Component {
             )
           }
         </View>
-        <View style={{paddingBottom: 30 }}>
+        <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
             title={this.props.screenProps.localeStore.previous}
             type="clear"
