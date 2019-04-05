@@ -4,10 +4,6 @@ import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
 export default class ResultsScreen extends React.Component {
-  date = new Date();
-  state = {
-    time: `${this.date.getHours() > 12 ? this.date.getHours() - 12 : this.date.getHours()}:${this.date.getMinutes() >= 10 ? this.date.getMinutes() : `0${this.date.getMinutes()}`}${this.date.getHours() >= 12 ? 'PM' : 'AM'}`
-  };
   constructor(props) {
     super(props);
     this.previousPage = this.previousPage.bind(this);
@@ -25,7 +21,7 @@ export default class ResultsScreen extends React.Component {
           <View style={{ paddingBottom: 30 }}>
             <HeaderText>{this.props.screenProps.store.clinic}</HeaderText>
           </View>
-          <HeaderText>{this.state.time}</HeaderText>
+          <HeaderText>{this.props.screenProps.store.time}</HeaderText>
           <HeaderText>{this.props.screenProps.store.date.toDateString()}</HeaderText>
           <View style={{ paddingTop: 30, width: '100%' }}>
             <Button
@@ -46,6 +42,9 @@ export default class ResultsScreen extends React.Component {
     );
   }
   previousPage() {
-    this.props.navigation.navigate('Time');
+    if (this.props.screenProps.store.meta === 'location')
+      this.props.navigation.navigate('Time');
+    else
+      this.props.navigation.navigate('Location');
   }
 }

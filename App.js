@@ -1,10 +1,11 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { HomeScreen, ProblemScreen, LocationScreen, TimeScreen, DateScreen, ResultsScreen } from './screens';
+import { HomeScreen, ProblemScreen, LocationScreen, TimeScreen, DateScreen, ResultsScreen, MetaScreen } from './screens';
 
 const AppNavigator = createStackNavigator({
   Home: HomeScreen,
   Problem: ProblemScreen,
+  Meta: MetaScreen,
   Time: TimeScreen,
   Date: DateScreen,
   Location: LocationScreen,
@@ -33,6 +34,8 @@ export default class App extends React.Component {
         howToGetThere: "怎样去？",
         confirm: "确定时间",
         weekdays: ["一","二","三","四","五","六","天"],
+        chooseLocation: "先选诊所",
+        chooseDateTime: "先选时间",
 
         head: "头",
         eyes: "眼睛",
@@ -63,6 +66,8 @@ export default class App extends React.Component {
         howToGetThere: "How To Get There?",
         confirm: "Confirm Date",
         weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        chooseLocation: "Choose Location First",
+        chooseDateTime: "Choose Date/Time First",
 
         head: "Head",
         eyes: "Eye",

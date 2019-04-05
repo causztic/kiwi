@@ -18,7 +18,7 @@ export default class HomeScreen extends React.Component {
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <HeaderText>Choose Language</HeaderText>
           <HeaderText>语言选择</HeaderText>
-            <View style={{width: '100%', paddingBottom: 15, paddingTop: 15}}>
+            <View style={{width: '100%', paddingBottom: 30, paddingTop: 15}}>
               <Button
                 onPress={() => this.changeLocale('en')}
                 title="English"

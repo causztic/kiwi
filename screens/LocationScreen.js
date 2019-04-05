@@ -14,9 +14,12 @@ export default class LocationScreen extends React.Component {
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
           <Text>{this.props.screenProps.localeStore.title}</Text>
+          <View style={{ paddingTop: 20}}>
+            <Text>{this.props.screenProps.store.date ? this.props.screenProps.store.date.toDateString() : null}</Text>
+            <Text>{this.props.screenProps.store.time}</Text>
+          </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
-          <HeaderText>{this.props.screenProps.localeStore.selectLocation }</HeaderText>
           <Image
             resizeMode="contain"
             style={{height: 100}}
@@ -41,7 +44,7 @@ export default class LocationScreen extends React.Component {
               titleStyle={{fontSize: 32}}
             />
           </View>
-          <Image
+          {/* <Image
             resizeMode="contain"
             style={{height: 100}}
             source={require("../images/polyclinic3.jpg")}/>
@@ -52,7 +55,7 @@ export default class LocationScreen extends React.Component {
               onPress={() => this.nextPage('Toa Payoh Polyclinic')}
               titleStyle={{fontSize: 32}}
             />
-          </View>
+          </View> */}
         </View>
         <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
@@ -66,10 +69,16 @@ export default class LocationScreen extends React.Component {
   }
   nextPage(clinic) {
     this.props.screenProps.store.clinic = clinic;
-    this.props.navigation.navigate('Date');
+    if (this.props.screenProps.store.meta === 'location')
+      this.props.navigation.navigate('Date');
+    else
+      this.props.navigation.navigate('Results');
   }
 
   previousPage() {
-    this.props.navigation.navigate('Problem');
+    if (this.props.screenProps.store.meta === 'location')
+      this.props.navigation.navigate('Meta');
+    else
+      this.props.navigation.navigate('Time');
   }
 }

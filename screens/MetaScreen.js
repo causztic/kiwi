@@ -3,7 +3,7 @@ import { View, ScrollView, Text } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
-export default class ProblemScreen extends React.Component {
+export default class MetaScreen extends React.Component {
   constructor(props) {
     super(props);
     this.previousPage = this.previousPage.bind(this);
@@ -16,19 +16,22 @@ export default class ProblemScreen extends React.Component {
           <Text>{this.props.screenProps.localeStore.title}</Text>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
-          <HeaderText>{this.props.screenProps.localeStore.problem }</HeaderText>
-          {
-            ["head", "throat", "stomach", "muscle", "others"].map(part =>
-              <View style={{ paddingBottom: 15, width: '100%' }} key={part}>
-                <Button
-                  title={this.props.screenProps.localeStore[part]}
-                  onPress={this.nextPage}
-                  buttonStyle={{padding: 30}}
-                  titleStyle={{fontSize: 32}}
-                />
-              </View>
-            )
-          }
+          <View style={{ paddingBottom: 30, width: '100%' }}>
+            <Button
+              title={this.props.screenProps.localeStore.chooseLocation}
+              onPress={() => this.nextPage('location')}
+              buttonStyle={{padding: 30}}
+              titleStyle={{fontSize: 32}}
+            />
+          </View>
+          <View style={{ width: '100%' }}>
+            <Button
+              title={this.props.screenProps.localeStore.chooseDateTime}
+              onPress={() => this.nextPage('datetime')}
+              buttonStyle={{padding: 30}}
+              titleStyle={{fontSize: 32}}
+            />
+          </View>
         </View>
         <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
@@ -43,7 +46,12 @@ export default class ProblemScreen extends React.Component {
   previousPage() {
     this.props.navigation.navigate('Home');
   }
-  nextPage() {
-    this.props.navigation.navigate('Meta');
+  nextPage(key) {
+    this.props.screenProps.store.meta = key;
+    if (key === 'location') {
+      this.props.navigation.navigate('Location');
+    } else {
+      this.props.navigation.navigate('Date');
+    }
   }
 }

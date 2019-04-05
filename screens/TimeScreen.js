@@ -42,6 +42,11 @@ export default class TimeScreen extends React.Component {
     this.props.navigation.navigate('Date');
   }
   nextPage() {
-    this.props.navigation.navigate('Results');
+    const date = new Date();
+    this.props.screenProps.store.time = `${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes() >= 10 ? date.getMinutes() : `0${date.getMinutes()}`}${date.getHours() >= 12 ? 'PM' : 'AM'}`;
+    if (this.props.screenProps.store.meta === 'location')
+      this.props.navigation.navigate('Results');
+    else
+      this.props.navigation.navigate('Location');
   }
 }
