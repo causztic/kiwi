@@ -29,7 +29,7 @@ export default class DateScreen extends React.Component {
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
           <Text>{this.props.screenProps.localeStore.title}</Text>
           <View style={{ paddingTop: 20}}>
-            <Text>Shenton Medical (Changi)</Text>
+            <Text>{this.props.screenProps.store.clinic}</Text>
           </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
@@ -67,6 +67,7 @@ export default class DateScreen extends React.Component {
     this.props.navigation.navigate('Location');
   }
   nextPage() {
+    this.props.screenProps.store.date = new Date(this.state.selectedStartDate);
     this.props.navigation.navigate('Time');
   }
 }

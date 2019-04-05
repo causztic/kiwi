@@ -15,8 +15,8 @@ export default class TimeScreen extends React.Component {
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
           <Text>{this.props.screenProps.localeStore.title}</Text>
           <View style={{ paddingTop: 20}}>
-            <Text>Shenton Medical (Changi)</Text>
-            <Text>1 April 2019</Text>
+            <Text>{this.props.screenProps.store.clinic}</Text>
+            <Text>{this.props.screenProps.store.date.toDateString()}</Text>
           </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>

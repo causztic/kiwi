@@ -83,6 +83,7 @@ export default class App extends React.Component {
         muscle: "Muscle"
       },
     }
+    this.store = {};
     this.localeStore = new Proxy({
       locale: 'en',
     }, {
@@ -108,7 +109,8 @@ export default class App extends React.Component {
       <AppContainer
         screenProps={{
           localeStore: this.localeStore,
-          changeLocale: this.changeLocale
+          changeLocale: this.changeLocale,
+          store: this.store,
         }}
       />
     );

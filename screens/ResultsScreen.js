@@ -6,7 +6,6 @@ import { HeaderText } from '../HeaderText';
 export default class ResultsScreen extends React.Component {
   date = new Date();
   state = {
-    date: "April 01 2019",
     time: `${this.date.getHours() > 12 ? this.date.getHours() - 12 : this.date.getHours()}:${this.date.getMinutes() >= 10 ? this.date.getMinutes() : `0${this.date.getMinutes()}`}${this.date.getHours() >= 12 ? 'PM' : 'AM'}`
   };
   constructor(props) {
@@ -14,7 +13,7 @@ export default class ResultsScreen extends React.Component {
     this.previousPage = this.previousPage.bind(this);
   }
   getDay() {
-    return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][this.date.getDay() - 1];
+    return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][this.props.screenProps.store.date.getDay() - 1];
   }
   render() {
     return (
@@ -24,11 +23,10 @@ export default class ResultsScreen extends React.Component {
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <View style={{ paddingBottom: 30 }}>
-            <HeaderText>Shenton Medical (Changi)</HeaderText>
+            <HeaderText>{this.props.screenProps.store.clinic}</HeaderText>
           </View>
           <HeaderText>{this.state.time}</HeaderText>
-          <HeaderText>{this.state.date}</HeaderText>
-          <HeaderText>{this.getDay()}</HeaderText>
+          <HeaderText>{this.props.screenProps.store.date.toDateString()}</HeaderText>
           <View style={{ paddingTop: 30, width: '100%' }}>
             <Button
               title={this.props.screenProps.localeStore.howToGetThere}
