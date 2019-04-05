@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
-import CalendarPicker from 'react-native-calendar-picker';
+// import CalendarPicker from 'react-native-calendar-picker';
+import CalendarPicker from '../CalendarPicker';
 
 export default class DateScreen extends React.Component {
   constructor(props) {
@@ -37,9 +38,14 @@ export default class DateScreen extends React.Component {
             onDateChange={this.onDateChange}
             selectedDayColor='#298bd9'
             selectedDayTextColor='white'
+            gridShape='square'
+            textStyle={{fontSize: 26}}
+            previousTitle={this.props.screenProps.localeStore.previous}
+            nextTitle={this.props.screenProps.localeStore.next}
+            weekdays={this.props.screenProps.localeStore.weekdays}
             minDate={Date.now()}
           />
-          <HeaderText>{ startDate }</HeaderText>
+          <HeaderText bold="true">{ startDate }</HeaderText>
           { selectedStartDate ? (<Button
               title={this.props.screenProps.localeStore.confirm}
               onPress={this.nextPage}

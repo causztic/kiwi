@@ -21,9 +21,9 @@ export default class ProblemScreen extends React.Component {
             ["head", "throat", "stomach", "muscle", "others"].map(part =>
               <View style={{ paddingBottom: 15, width: '100%' }} key={part}>
                 <Button
-                  buttonStyle={{padding: 30}}
                   title={this.props.screenProps.localeStore[part]}
                   onPress={this.nextPage}
+                  buttonStyle={{padding: 30}}
                   titleStyle={{fontSize: 32}}
                 />
               </View>
