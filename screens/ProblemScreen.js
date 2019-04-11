@@ -44,6 +44,6 @@ export default class ProblemScreen extends React.Component {
     this.props.navigation.navigate('Home');
   }
   nextPage() {
-    this.props.navigation.navigate('Date');
+    this.props.navigation.navigate('Location');
   }
 }

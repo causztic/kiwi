@@ -64,7 +64,7 @@ export default class DateScreen extends React.Component {
     );
   }
   previousPage() {
-    this.props.navigation.navigate('Problem');
+    this.props.navigation.navigate('Location');
   }
   nextPage() {
     this.props.screenProps.store.date = new Date(this.state.selectedStartDate);
