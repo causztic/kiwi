@@ -68,7 +68,7 @@ export default class App extends React.Component {
         previous: "Back",
         howToGetThere: "How To Get There?",
         confirm: "Confirm Date",
-        weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         chooseLocation: "Choose Location First",
         chooseDateTime: "Choose Date/Time First",
         polyclinic1: "AMK Polyclinic",
