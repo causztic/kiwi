@@ -49,7 +49,7 @@ export default class DateScreen extends React.Component {
           { selectedStartDate ? (<Button
               title={this.props.screenProps.localeStore.confirm}
               onPress={this.nextPage}
-              buttonStyle={{padding: 30}}
+              buttonStyle={{padding: 30, width: '100%' }}
               titleStyle={{fontSize: 32}}
           />) : null }
         </View>
@@ -64,10 +64,7 @@ export default class DateScreen extends React.Component {
     );
   }
   previousPage() {
-    if (this.props.screenProps.store.meta === 'location')
-      this.props.navigation.navigate('Location');
-    else
-      this.props.navigation.navigate('Meta');
+    this.props.navigation.navigate('Problem');
   }
   nextPage() {
     this.props.screenProps.store.date = new Date(this.state.selectedStartDate);

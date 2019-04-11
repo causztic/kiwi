@@ -20,13 +20,16 @@ export default class LocationScreen extends React.Component {
           </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
+          <HeaderText>{this.props.screenProps.localeStore.selectLocation }</HeaderText>
           <View style={{paddingBottom: 30}}>
             <TouchableOpacity onPress={() => this.nextPage('AMK PolyClinic')}>
               <Image
                 resizeMode="contain"
-                style={{height: 100}}
-                source={require("../images/polyclinic1.jpeg")}/>
-              <HeaderText>{this.props.screenProps.localeStore.polyclinic1}</HeaderText>
+                style={{height: 100, width: 350}}
+                source={require("../assets/images/polyclinic1.jpeg")}/>
+              <View style={{backgroundColor: '#298bd9'}}>
+                <HeaderText white="true">{this.props.screenProps.localeStore.polyclinic1}</HeaderText>
+              </View>
               <HeaderText>20 {this.props.screenProps.localeStore.minutesAway}</HeaderText>
             </TouchableOpacity>
           </View>
@@ -34,9 +37,11 @@ export default class LocationScreen extends React.Component {
             <TouchableOpacity onPress={() => this.nextPage('Healthway Medical Clinic')}>
               <Image
                 resizeMode="contain"
-                style={{height: 100}}
-                source={require("../images/polyclinic2.jpg")}/>
-              <HeaderText>{this.props.screenProps.localeStore.polyclinic2}</HeaderText>
+                style={{height: 100, width: 350}}
+                source={require("../assets/images/polyclinic2.jpg")}/>
+              <View style={{backgroundColor: '#298bd9'}}>
+                <HeaderText white="true">{this.props.screenProps.localeStore.polyclinic2}</HeaderText>
+              </View>
               <HeaderText>25 {this.props.screenProps.localeStore.minutesAway}</HeaderText>
             </TouchableOpacity>
           </View>
@@ -53,16 +58,10 @@ export default class LocationScreen extends React.Component {
   }
   nextPage(clinic) {
     this.props.screenProps.store.clinic = clinic;
-    if (this.props.screenProps.store.meta === 'location')
-      this.props.navigation.navigate('Date');
-    else
-      this.props.navigation.navigate('Results');
+    this.props.navigation.navigate('Results');
   }
 
   previousPage() {
-    if (this.props.screenProps.store.meta === 'location')
-      this.props.navigation.navigate('Meta');
-    else
-      this.props.navigation.navigate('Time');
+    this.props.navigation.navigate('Time');
   }
 }

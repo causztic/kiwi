@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { HomeScreen, ProblemScreen, LocationScreen, TimeScreen, DateScreen, ResultsScreen, MetaScreen } from './screens';
+import { HomeScreen, ProblemScreen, LocationScreen, TimeScreen, DateScreen, ResultsScreen, MetaScreen, NavigationScreen } from './screens';
 
 const AppNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -10,6 +10,7 @@ const AppNavigator = createStackNavigator({
   Date: DateScreen,
   Location: LocationScreen,
   Results: ResultsScreen,
+  Navigation: NavigationScreen,
 }, {
   initialRouteName: "Home",
   defaultNavigationOptions: {
@@ -61,18 +62,18 @@ export default class App extends React.Component {
       en: {
         title: "Healthcare Appointment",
         problem: "Where Pain?",
-        selectLocation: "Which Clinic?",
+        selectLocation: "Go Which Clinic?",
         selectTime: "What Time Go?",
         selectDate: "Which Date Go?",
         next: "Next",
         previous: "Back",
         howToGetThere: "How To Get There?",
-        confirm: "Confirm Date",
+        confirm: "OK",
         weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         chooseLocation: "Choose Location First",
         chooseDateTime: "Choose Date/Time First",
         polyclinic1: "AMK Polyclinic",
-        polyclinic2: "Healthway Medical Clinic",
+        polyclinic2: "Healthway Medical",
         minutesAway: "minutes away",
 
         head: "Head",

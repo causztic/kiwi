@@ -5,5 +5,6 @@ import DateScreen from './DateScreen';
 import LocationScreen from './LocationScreen';
 import ResultsScreen from './ResultsScreen';
 import MetaScreen from './MetaScreen';
+import NavigationScreen from './NavigationScreen';
 
-export { HomeScreen, ProblemScreen, TimeScreen, DateScreen, LocationScreen, ResultsScreen, MetaScreen }
+export { HomeScreen, ProblemScreen, TimeScreen, DateScreen, LocationScreen, ResultsScreen, MetaScreen, NavigationScreen }

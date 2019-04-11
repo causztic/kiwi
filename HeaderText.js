@@ -6,9 +6,12 @@ export class HeaderText extends React.Component {
     super(props);
   }
   render() {
-    const { bold } = this.props;
+    const { bold, white } = this.props;
     return (
-      <Text style={{fontSize: 36, fontWeight: bold ? "bold" : "normal"}}>{this.props.children}</Text>
+      <Text style={{
+        fontSize: 36,
+        fontWeight: bold ? "bold" : "normal",
+        color: white ? "white" : "black" }}>{this.props.children}</Text>
     );
   }
 }
