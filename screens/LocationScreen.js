@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
@@ -20,42 +20,26 @@ export default class LocationScreen extends React.Component {
           </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
-          <Image
-            resizeMode="contain"
-            style={{height: 100}}
-            source={require("../images/polyclinic1.jpeg")}/>
-          <HeaderText>20 minutes away</HeaderText>
-          <View style={{ width: '100%', marginBottom: 30 }}>
-            <Button
-              title="AMK Polyclinic"
-              onPress={() => this.nextPage('AMK PolyClinic')}
-              titleStyle={{fontSize: 32}}
-            />
+          <View style={{paddingBottom: 30}}>
+            <TouchableOpacity onPress={() => this.nextPage('AMK PolyClinic')}>
+              <Image
+                resizeMode="contain"
+                style={{height: 100}}
+                source={require("../images/polyclinic1.jpeg")}/>
+              <HeaderText>{this.props.screenProps.localeStore.polyclinic1}</HeaderText>
+              <HeaderText>20 {this.props.screenProps.localeStore.minutesAway}</HeaderText>
+            </TouchableOpacity>
           </View>
-          <Image
-            resizeMode="contain"
-            style={{height: 100}}
-            source={require("../images/polyclinic2.jpg")}/>
-          <HeaderText>25 minutes away</HeaderText>
-          <View style={{ width: '100%', marginBottom: 30 }}>
-            <Button
-              title="Healthway Medical Clinic"
-              onPress={() => this.nextPage('Healthway Medical Clinic')}
-              titleStyle={{fontSize: 32}}
-            />
+          <View>
+            <TouchableOpacity onPress={() => this.nextPage('Healthway Medical Clinic')}>
+              <Image
+                resizeMode="contain"
+                style={{height: 100}}
+                source={require("../images/polyclinic2.jpg")}/>
+              <HeaderText>{this.props.screenProps.localeStore.polyclinic2}</HeaderText>
+              <HeaderText>25 {this.props.screenProps.localeStore.minutesAway}</HeaderText>
+            </TouchableOpacity>
           </View>
-          {/* <Image
-            resizeMode="contain"
-            style={{height: 100}}
-            source={require("../images/polyclinic3.jpg")}/>
-          <HeaderText>30 minutes away</HeaderText>
-          <View style={{ width: '100%', marginBottom: 30 }}>
-            <Button
-              title="Toa Payoh Polyclinic"
-              onPress={() => this.nextPage('Toa Payoh Polyclinic')}
-              titleStyle={{fontSize: 32}}
-            />
-          </View> */}
         </View>
         <View style={{paddingBottom: 30, width: '100%' }}>
           <Button

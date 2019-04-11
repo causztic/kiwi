@@ -33,9 +33,12 @@ export default class App extends React.Component {
         previous: "前一页",
         howToGetThere: "怎样去？",
         confirm: "确定时间",
-        weekdays: ["一","二","三","四","五","六","天"],
+        weekdays: ["天", "一","二","三","四","五","六"],
         chooseLocation: "先选诊所",
         chooseDateTime: "先选时间",
+        polyclinic1: "宏茂桥综合性医院",
+        polyclinic2: "健康医疗诊所",
+        minutesAway: "分钟",
 
         head: "头",
         eyes: "眼睛",
@@ -68,6 +71,9 @@ export default class App extends React.Component {
         weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         chooseLocation: "Choose Location First",
         chooseDateTime: "Choose Date/Time First",
+        polyclinic1: "AMK Polyclinic",
+        polyclinic2: "Healthway Medical Clinic",
+        minutesAway: "minutes away",
 
         head: "Head",
         eyes: "Eye",
