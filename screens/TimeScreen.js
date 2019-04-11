@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 import { HeaderText } from '../HeaderText';
 
@@ -21,12 +21,16 @@ export default class TimeScreen extends React.Component {
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>
           <HeaderText>{this.props.screenProps.localeStore.selectTime }</HeaderText>
-          <Button
-            title={this.props.screenProps.localeStore.next}
-            color="black"
-            onPress={this.nextPage}
-            titleStyle={{fontSize: 32}}
-          />
+          <View style={{flexDirection: "row", flexWrap: "wrap"}}>
+            {
+              ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00PM', '3:00 PM', '4:00 PM', '5:00 PM'].map(time => (
+                <TouchableOpacity style={{borderStyle: "solid", borderWidth: 1, borderColor: "black", padding: 15, width: "100%"}}
+                  key={time} onPress={() => this.nextPage(time)}>
+                  <HeaderText>{time}</HeaderText>
+                </TouchableOpacity>
+              )
+            )}
+          </View>
         </View>
         <View style={{paddingBottom: 30, width: '100%' }}>
           <Button
@@ -41,9 +45,8 @@ export default class TimeScreen extends React.Component {
   previousPage() {
     this.props.navigation.navigate('Date');
   }
-  nextPage() {
-    const date = new Date();
-    this.props.screenProps.store.time = `${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes() >= 10 ? date.getMinutes() : `0${date.getMinutes()}`}${date.getHours() >= 12 ? 'PM' : 'AM'}`;
+  nextPage(time) {
+    this.props.screenProps.store.time = time;
     this.props.navigation.navigate('Results');
   }
 }
