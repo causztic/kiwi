@@ -23,11 +23,15 @@ export default class TimeScreen extends React.Component {
           <HeaderText>{this.props.screenProps.localeStore.selectTime }</HeaderText>
           <View style={{flexDirection: "row", flexWrap: "wrap"}}>
             {
-              ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'].map(time => (
-                <TouchableOpacity style={{borderStyle: "solid", borderWidth: 1, borderColor: "black", padding: 15, width: "100%"}}
-                  key={time} onPress={() => this.nextPage(time)}>
-                  <HeaderText>{time}</HeaderText>
-                </TouchableOpacity>
+              ['9:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '4:00 PM'].map(time => (
+                <View key={time} style={{width: '100%', paddingBottom: 15, paddingTop: 15}}>
+                  <Button
+                    onPress={() => this.nextPage(time)}
+                    title={time}
+                    buttonStyle={{padding: 15}}
+                    titleStyle={{fontSize: 32}}
+                  />
+                </View>
               )
             )}
           </View>

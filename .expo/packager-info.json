@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19004,
-  "packagerPid": 11544,
-  "expoServerNgrokUrl": "https://qw-trf.anonymous.kiwi.exp.direct",
-  "packagerNgrokUrl": "https://packager.qw-trf.anonymous.kiwi.exp.direct",
-  "ngrokPid": 11572,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }

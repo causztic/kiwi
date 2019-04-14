@@ -20,8 +20,8 @@ export default class LocationScreen extends React.Component {
           <View style={{paddingBottom: 30}}>
             <TouchableOpacity onPress={() => this.nextPage('AMK PolyClinic')}>
               <Image
-                resizeMode="contain"
-                style={{height: 100, width: 350}}
+                resizeMode="stretch"
+                style={{height: 100, width: 400}}
                 source={require("../assets/images/polyclinic1.jpeg")}/>
               <View style={{backgroundColor: '#298bd9'}}>
                 <HeaderText white="true">{this.props.screenProps.localeStore.polyclinic1}</HeaderText>
@@ -32,8 +32,8 @@ export default class LocationScreen extends React.Component {
           <View>
             <TouchableOpacity onPress={() => this.nextPage('Healthway Medical Clinic')}>
               <Image
-                resizeMode="contain"
-                style={{height: 100, width: 350}}
+                resizeMode="stretch"
+                style={{height: 100, width: 400}}
                 source={require("../assets/images/polyclinic2.jpg")}/>
               <View style={{backgroundColor: '#298bd9'}}>
                 <HeaderText white="true">{this.props.screenProps.localeStore.polyclinic2}</HeaderText>
