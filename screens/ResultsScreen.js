@@ -9,10 +9,10 @@ export default class ResultsScreen extends React.Component {
     this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
   }
-  getDay() {
-    return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][this.props.screenProps.store.date.getDay() - 1];
-  }
   render() {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const date = `${days[this.props.screenProps.store.date.getDay()]} ${months[this.props.screenProps.store.date.getMonth()]} ${this.props.screenProps.store.date.getDate()}`;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
@@ -23,7 +23,7 @@ export default class ResultsScreen extends React.Component {
             <HeaderText>{this.props.screenProps.store.clinic}</HeaderText>
           </View>
           <HeaderText>{this.props.screenProps.store.time}</HeaderText>
-          <HeaderText>{this.props.screenProps.store.date.toDateString()}</HeaderText>
+          <HeaderText>{date}</HeaderText>
           <View style={{ paddingTop: 30, width: '100%' }}>
             <Button
               title={this.props.screenProps.localeStore.howToGetThere}

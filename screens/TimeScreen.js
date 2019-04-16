@@ -10,13 +10,16 @@ export default class TimeScreen extends React.Component {
     this.nextPage = this.nextPage.bind(this);
   }
   render() {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const date = `${days[this.props.screenProps.store.date.getDay()]} ${months[this.props.screenProps.store.date.getMonth()]} ${this.props.screenProps.store.date.getDate()}`;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
           <Text>{this.props.screenProps.localeStore.title}</Text>
           <View style={{ paddingTop: 20}}>
             <Text>{this.props.screenProps.store.clinic}</Text>
-            <Text>{this.props.screenProps.store.date.toDateString()}</Text>
+            <Text>{date}</Text>
           </View>
         </View>
         <View style={{marginBottom: 'auto', alignItems: 'center', width: '100%'}}>

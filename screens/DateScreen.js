@@ -23,7 +23,9 @@ export default class DateScreen extends React.Component {
   }
   render() {
     const { selectedStartDate } = this.state;
-    const startDate = selectedStartDate ? new Date(selectedStartDate).toDateString() : '';
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const startDate = selectedStartDate ? `${days[new Date(selectedStartDate).getDay()]} ${months[new Date(selectedStartDate).getMonth()]} ${new Date(selectedStartDate).getDate()}` : '';
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{marginBottom: 'auto', paddingTop: 60}}>
